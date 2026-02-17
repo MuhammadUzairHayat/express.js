@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>portfolio · soft interactions</title>
+    <!-- soft, modern, professional theme -->
+    <!-- fonts & base styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome 6 (free) for subtle icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      /* ---------- SOFT RESET & VARIABLES ---------- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Outfit";
+        background-color: #faf7f2; /* warm soft base */
+        color: #3e3e3c;
+        line-height: 1.6;
+        font-weight: 350;
+        font-size: 1.05rem;
+        letter-spacing: -0.01em;
+        padding: 2rem 1.5rem;
+      }
+
+      /* soft pastel theme — blush, sand, muted sage, lavender hints */
+      :root {
+        --bg-soft: #faf7f2;
+        --paper: #ffffffec;
+        --shadow-sm:
+          0 10px 25px -10px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.02);
+        --shadow-hover: 0 22px 35px -12px rgba(92, 80, 80, 0.06);
+        --accent-1: #e7dcd0; /* sand */
+        --accent-2: #d9e0db; /* muted sage */
+        --accent-3: #f1e3df; /* peach blush */
+        --accent-4: #dcd6e6; /* soft lavender */
+        --text-soft: #4f4e4a;
+        --text-muted: #6e6c68;
+        --border-light: #efebe7;
+        --card-radius: 34px;
+        --btn-radius: 50px;
+      }
+
+      /* ---------- LAYOUT –– soft airy ---------- */
+      .container {
+        max-width: 1220px;
+        margin: 0 auto;
+        background: var(--paper);
+        border-radius: 48px 48px 42px 42px;
+        box-shadow: var(--shadow-sm);
+        backdrop-filter: blur(2px);
+        padding: 2.8rem 2.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        transition:
+          box-shadow 0.25s ease,
+          transform 0.2s;
+      }
+
+      .container:hover {
+        box-shadow: var(--shadow-hover);
+      }
+
+      /* interactive soft header */
+      header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 3rem;
+      }
+
+      .logo-area {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .avatar-circle {
+        background: var(--accent-4);
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #6a5e7c;
+        font-size: 1.8rem;
+        transition: all 0.2s ease;
+        border: 2px solid white;
+        box-shadow: 0 4px 9px rgba(0, 0, 0, 0.02);
+      }
+
+      .avatar-circle i {
+        filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.02));
+      }
+
+      .avatar-circle:hover {
+        background: #e1d9ee;
+        transform: scale(0.97);
+      }
+
+      .name-title h1 {
+        font-size: 1.9rem;
+        font-weight: 450;
+        letter-spacing: -0.03em;
+        color: #49454b;
+        margin-bottom: 0.1rem;
+      }
+
+      .name-title span {
+        font-size: 1rem;
+        font-weight: 340;
+        color: var(--text-muted);
+        background: #f1eee9;
+        padding: 0.2rem 1rem;
+        border-radius: 40px;
+        display: inline-block;
+        border: 1px solid white;
+      }
+
+      /* soft navigation — interactive */
+      nav ul {
+        display: flex;
+        gap: 1.9rem;
+        list-style: none;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #5b5b59;
+        font-weight: 420;
+        font-size: 1.08rem;
+        padding: 0.4rem 0.2rem;
+        border-bottom: 2px solid transparent;
+        transition:
+          border-color 0.2s,
+          color 0.2s,
+          background 0.1s;
+        border-radius: 2px;
+      }
+
+      nav a i {
+        margin-right: 6px;
+        font-size: 0.95rem;
+        color: #a0978e;
+        transition: color 0.2s;
+      }
+
+      nav a:hover {
+        border-bottom-color: #cbc2b5;
+        color: #3a3530;
+      }
+
+      nav a:hover i {
+        color: #7a6a5c;
+      }
+
+      /* hero – soft and welcoming */
+      .hero {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        background: linear-gradient(145deg, #fbf9f6 0%, #fffcf9 100%);
+        padding: 2.2rem 2.2rem;
+        border-radius: 38px;
+        margin-bottom: 3.2rem;
+        border: 1px solid #f1ebe6;
+        transition: all 0.3s ease;
+      }
+
+      .hero:hover {
+        background: #fffefc;
+        border-color: #e3dbd2;
+      }
+
+      .hero-text {
+        flex: 2;
+      }
+
+      .hero-text h2 {
+        font-size: 2.3rem;
+        font-weight: 380;
+        line-height: 1.2;
+        color: #3d3a38;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.02em;
+      }
+
+      .hero-highlight {
+        background: #f0ebe4;
+        padding: 0.1rem 0.5rem;
+        border-radius: 40px;
+        font-weight: 420;
+        color: #5b534b;
+      }
+
+      .hero p {
+        font-size: 1.18rem;
+        color: #62605b;
+        max-width: 85%;
+        margin-top: 0.6rem;
+      }
+
+      .hero-cta {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .btn-soft {
+        background: white;
+        padding: 0.9rem 2.1rem;
+        border-radius: var(--btn-radius);
+        text-decoration: none;
+        color: #4b4945;
+        font-weight: 450;
+        border: 1px solid #e5ded7;
+        box-shadow: 0 3px 7px rgba(0, 0, 0, 0.01);
+        backdrop-filter: blur(4px);
+        transition:
+          background 0.25s,
+          border 0.25s,
+          box-shadow 0.25s,
+          transform 0.15s;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.05rem;
+      }
+
+      .btn-soft i {
+        color: #8f857b;
+        transition: transform 0.2s;
+      }
+
+      .btn-soft:hover {
+        background: #fff9f5;
+        border-color: #ccbfb3;
+        box-shadow: 0 10px 18px -10px rgba(116, 100, 89, 0.12);
+        transform: translateY(-2px);
+      }
+
+      .btn-soft:hover i {
+        transform: translateX(4px);
+      }
+
+      /* Section styling – consistent, calm */
+      section {
+        margin-bottom: 3.5rem;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        margin-bottom: 1.8rem;
+      }
+
+      .section-header i {
+        font-size: 1.7rem;
+        color: #b9aea4;
+        transition: color 0.2s;
+      }
+
+      .section-header h3 {
+        font-size: 1.7rem;
+        font-weight: 380;
+        color: #514e4a;
+        letter-spacing: -0.02rem;
+        border-bottom: 2px solid #ece5df;
+        padding-bottom: 0.2rem;
+      }
+
+      /* ---- interactive cards : work & projects ---- */
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 1.9rem;
+      }
+
+      .card {
+        background: white;
+        border-radius: 28px;
+        padding: 1.8rem 1.6rem;
+        border: 1px solid var(--border-light);
+        transition: all 0.25s ease;
+        box-shadow: 0 5px 13px -5px rgba(0, 0, 0, 0.02);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .card:hover {
+        border-color: #ddd3cb;
+        background: #fffdfc;
+        box-shadow: 0 18px 30px -12px rgba(100, 90, 80, 0.05);
+        transform: scale(0.99) translateY(-3px);
+      }
+
+      .card-icon {
+        background: var(--accent-2);
+        width: 52px;
+        height: 52px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #5d6b63;
+        font-size: 1.7rem;
+        margin-bottom: 1.2rem;
+        transition: 0.2s;
+      }
+
+      .card:nth-child(2) .card-icon {
+        background: #f3e2df;
+        color: #9a7872;
+      }
+      .card:nth-child(3) .card-icon {
+        background: #e0dfe7;
+        color: #625b71;
+      }
+      .card:nth-child(4) .card-icon {
+        background: #f3ebd8;
+        color: #8f8772;
+      }
+
+      .card h4 {
+        font-size: 1.4rem;
+        font-weight: 430;
+        color: #4b4541;
+        margin-bottom: 0.35rem;
+      }
+
+      .card-tag {
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #8f8a84;
+        margin-bottom: 0.7rem;
+        font-weight: 450;
+      }
+
+      .card p {
+        color: #64625e;
+        font-weight: 350;
+        margin-bottom: 1.2rem;
+        flex-grow: 1;
+      }
+
+      .card-link {
+        text-decoration: none;
+        color: #7b6b60;
+        font-weight: 440;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-top: 1px solid #f0ece8;
+        padding-top: 0.9rem;
+        margin-top: auto;
+        transition: 0.15s;
+      }
+
+      .card-link i {
+        transition: transform 0.2s;
+      }
+
+      .card-link:hover {
+        color: #53453b;
+      }
+      .card-link:hover i {
+        transform: translateX(5px);
+      }
+
+      /* ------ soft skills / interactive tags ------- */
+      .skills-pill {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 0.8rem;
+      }
+
+      .skill-item {
+        background: #f5f2ee;
+        padding: 0.5rem 1.2rem;
+        border-radius: 44px;
+        font-size: 0.98rem;
+        color: #5b5752;
+        border: 1px solid transparent;
+        transition: all 0.18s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .skill-item i {
+        color: #9e948c;
+        font-size: 0.9rem;
+        transition: color 0.2s;
+      }
+
+      .skill-item:hover {
+        background: #ede9e4;
+        border-color: #d8d0c8;
+        transform: scale(0.97);
+        color: #3c3834;
+      }
+      .skill-item:hover i {
+        color: #6c5d53;
+      }
+
+      /* ----- about area - interactive soft row ---- */
+      .about-wrap {
+        background: #fbf8f5;
+        border-radius: 36px;
+        padding: 2.1rem 2.2rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        border: 1px solid #f3eee9;
+        transition: background 0.25s;
+      }
+      .about-wrap:hover {
+        background: #fffefa;
+      }
+      .about-text {
+        flex: 2;
+        min-width: 240px;
+      }
+      .about-text p {
+        margin-bottom: 1.2rem;
+        color: #5f5c58;
+      }
+      .about-highlight {
+        background: white;
+        padding: 1.2rem 1.5rem;
+        border-radius: 24px;
+        border: 1px solid #ede6df;
+        box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.01);
+      }
+      .about-highlight i {
+        color: #b8a79b;
+        margin-right: 8px;
+      }
+      .say-hello {
+        flex: 1;
+        background: var(--accent-1);
+        border-radius: 28px;
+        padding: 1.8rem 1.7rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: 1px solid #e2d7cd;
+        transition: box-shadow 0.2s;
+      }
+      .say-hello i {
+        font-size: 2.2rem;
+        color: #8a7e73;
+        margin-bottom: 0.6rem;
+      }
+      .say-hello p {
+        font-weight: 420;
+        color: #55504a;
+        margin-bottom: 0.8rem;
+      }
+      .soft-email {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(4px);
+        padding: 0.6rem 1.2rem;
+        border-radius: 60px;
+        text-decoration: none;
+        color: #4e4943;
+        font-size: 0.95rem;
+        border: 1px solid white;
+        transition: 0.2s;
+      }
+      .soft-email:hover {
+        background: white;
+        border-color: #cbbeb2;
+      }
+
+      /* footer delicate */
+      footer {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 3rem;
+        padding-top: 1.8rem;
+        border-top: 1px solid #ece7e2;
+        color: #787672;
+        font-size: 0.95rem;
+        align-items: center;
+      }
+      .social-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+      .social-links a {
+        color: #817c77;
+        text-decoration: none;
+        font-size: 1.2rem;
+        transition: all 0.15s;
+      }
+      .social-links a:hover {
+        color: #5c554f;
+        transform: translateY(-3px);
+      }
+
+      /* responsive love */
+      @media (max-width: 750px) {
+        body {
+          padding: 1.2rem;
+        }
+        .container {
+          padding: 1.8rem;
+        }
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1rem;
+        }
+        nav ul {
+          flex-wrap: wrap;
+          gap: 1.2rem;
+          margin-top: 0.5rem;
+        }
+        .hero {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1.5rem;
+        }
+        .hero p {
+          max-width: 100%;
+        }
+        .hero-cta {
+          justify-content: flex-start;
+        }
+        .project-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 480px) {
+        .container {
+          border-radius: 32px;
+          padding: 1.4rem;
+        }
+      }
+
+      /* interactive micro-animations */
+      .logo-area,
+      .btn-soft,
+      .card,
+      nav a,
+      .skill-item {
+        cursor: default;
+      }
+      a,
+      button,
+      .card-link,
+      .soft-email,
+      .social-links a {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- header – soft professional -->
+      <header>
+        <div class="logo-area">
+          <div class="avatar-circle">
+            <i class="fas fa-leaf"></i>
+            <!-- soft organic icon -->
+          </div>
+          <div class="name-title">
+            <h1>{{name}}</h1>
+            <span>product & interaction</span>
+          </div>
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <a href="#"><i class="fas fa-thin fa-grid-2"></i>work</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-thin fa-file-lines"></i>journal</a>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-thin fa-circle-user"></i>about</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- hero – interactive & warm -->
+      <div class="hero">
+        <div class="hero-text">
+          <h2>
+            crafting <span class="hero-highlight">soft interactions</span
+            ><br />with purpose.
+          </h2>
+          <p>
+            <i class="fas fa-sparkle" style="color: #b3a69c"></i> designing
+            calm, human-friendly experiences — minimal, accessible, poetic.
+          </p>
+        </div>
+        <div class="hero-cta">
+          <a href="#" class="btn-soft"
+            ><i class="fas fa-arrow-down-to-line"></i> portfolio
+            <i class="fas fa-arrow-right" style="font-size: 0.9rem"></i
+          ></a>
+        </div>
+      </div>
+
+      <!-- selected work – project cards soft interactive -->
+      <section>
+        <div class="section-header">
+          <i class="fas fa-folder-blank"></i>
+          <h3>selected projects</h3>
+        </div>
+        <div class="project-grid">
+          <!-- card 1 -->
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-palette"></i></div>
+            <div class="card-tag">2024 — design system</div>
+            <h4>sienna</h4>
+            <p>
+              Earthy, flexible component library built for calm enterprise
+              interfaces. Adopted by 3 product teams.
+            </p>
+            <a href="#" class="card-link"
+              >case study <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+          <!-- card 2 -->
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-cloud-moon"></i></div>
+            <div class="card-tag">2023 — digital wellbeing</div>
+            <h4>lumen</h4>
+            <p>
+              Screen-time companion with haptic micro-interactions. Reduced
+              anxiety triggers by 32% in pilot.
+            </p>
+            <a href="#" class="card-link"
+              >explore <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+          <!-- card 3 -->
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-trees"></i></div>
+            <div class="card-tag">2024 — immersive</div>
+            <h4>fern</h4>
+            <p>
+              Generative ambient installation for civic spaces — soft motion,
+              biofeedback.
+            </p>
+            <a href="#" class="card-link"
+              >interactive <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+          <!-- card 4 -->
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-hand-sparkles"></i></div>
+            <div class="card-tag">2025 — research</div>
+            <h4>haptic plains</h4>
+            <p>
+              Prototyping texture & sound for inclusive wearable interfaces.
+            </p>
+            <a href="#" class="card-link"
+              >process <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- disciplines / soft skill tags — interactive cloud -->
+      <section style="margin-bottom: 2.5rem">
+        <div class="section-header">
+          <i class="fas fa-code"></i>
+          <h3>craft & tools</h3>
+        </div>
+        <div class="skills-pill">
+          <span class="skill-item"
+            ><i class="fas fa-bezier-curve"></i> interaction design</span
+          >
+          <span class="skill-item"
+            ><i class="fas fa-wand-magic-sparkles"></i> motion ·
+            prototyping</span
+          >
+          <span class="skill-item"
+            ><i class="fas fa-pen-nib"></i> visual & UI</span
+          >
+          <span class="skill-item"
+            ><i class="fas fa-brain"></i> design strategy</span
+          >
+          <span class="skill-item"
+            ><i class="fas fa-microchip"></i> tangible computing</span
+          >
+          <span class="skill-item"
+            ><i class="fas fa-table"></i> Figma · Framer</span
+          >
+          <span class="skill-item"
+            ><i class="fas fa-code"></i> HTML/CSS · p5</span
+          >
+          <span class="skill-item"
+            ><i class="fas fa-cloud"></i> soft systems</span
+          >
+        </div>
+      </section>
+
+      <!-- about + soft callout – interactive zone -->
+      <section>
+        <div class="about-wrap">
+          <div class="about-text">
+            <div
+              style="
+                display: flex;
+                gap: 0.7rem;
+                align-items: center;
+                margin-bottom: 1rem;
+              "
+            >
+              <i
+                class="fas fa-asterisk"
+                style="color: #a8a096; font-size: 1.3rem"
+              ></i>
+              <h3
+                style="
+                  font-weight: 380;
+                  font-size: 1.5rem;
+                  border-bottom: none;
+                  padding-bottom: 0;
+                "
+              >
+                about jordan
+              </h3>
+            </div>
+            <p style="font-size: 1.1rem">
+              Designer & researcher exploring the edges of
+              <strong>soft technology</strong> — where interfaces feel more like
+              human connection than machine logic.
+            </p>
+            <div class="about-highlight">
+              <i class="fas fa-quote-left"></i> currently leading interaction
+              concepts at studio ava, previously at soft-lab. mentor for future
+              of design residency.
+            </div>
+            <p style="margin-top: 0.9rem">
+              <i class="fas fa-location-dot" style="color: #9c9086"></i> based
+              in portland · open for collab
+            </p>
+          </div>
+          <div class="say-hello">
+            <i class="fas fa-envelope-open-text"></i>
+            <p style="font-size: 1.3rem; font-weight: 400">say hello</p>
+            <p style="font-size: 0.95rem; margin-bottom: 0.9rem">
+              i’m always open to conversations around soft interactions.
+            </p>
+            <a href="#" class="soft-email"
+              ><i class="fas fa-paper-plane"></i> jordan@soft.work</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- footer – delicate, interactive -->
+      <footer>
+        <div style="display: flex; gap: 0.8rem; align-items: center">
+          <i class="fas fa-seedling" style="color: #a5b3a5"></i>
+          <span>© 2025 — soft interactions portfolio</span>
+        </div>
+        <div class="social-links">
+          <a href="#" aria-label="linkedin"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <a href="#" aria-label="github"><i class="fab fa-github"></i></a>
+          <a href="#" aria-label="are.na"
+            ><i class="fas fa-square-arrow-up-right"></i
+          ></a>
+          <a href="#" aria-label="instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+        </div>
+      </footer>
+    </div>
+    <!-- subtle interaction note: all links are interactive smooth, soft palette -->
+  </body>
+</html>
